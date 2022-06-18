@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using api.Models;
 using api.Services;
 using Microsoft.AspNetCore.Mvc;
 using PokeApiNet;
@@ -25,7 +26,7 @@ public class PokemonController: ControllerBase
     }
 
     [HttpGet]
-    public async Task<PokemonSprites> GetPokemon()
+    public async Task<GetPokemonByIDDto> GetPokemon()
     {
         return await _pokeService.GetPokemon(4);
         // return await pokeClient.GetResourceAsync<Pokemon>(pokemonId);

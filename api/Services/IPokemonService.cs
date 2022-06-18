@@ -1,3 +1,4 @@
+using api.Models;
 using PokeApiNet;
 
 namespace api.Services;
@@ -5,5 +6,5 @@ namespace api.Services;
 public interface IPokemonService
 {
 
-     Task<PokemonSprites> GetPokemon(int id);
+     Task<GetPokemonByIDDto> GetPokemon(int id);
 }

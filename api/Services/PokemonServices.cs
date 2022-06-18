@@ -1,3 +1,4 @@
+using api.Models;
 using PokeApiNet;
 
 namespace api.Services;
@@ -7,12 +8,14 @@ namespace api.Services;
 
 public class PokemonServices:IPokemonService
 {
-    public async Task<PokemonSprites> GetPokemon(int id)
+    public async Task<GetPokemonByIDDto> GetPokemon(int id)
     {
         using var client = new PokeApiClient();
         var pokemon = await client.GetResourceAsync<Pokemon>(id);
+        var result = new GetPokemonByIDDto();
+        result.FrontDefault = pokemon.Sprites.FrontDefault;
+        return result;
 
-        return pokemon.Sprites;
     }
     
 }
